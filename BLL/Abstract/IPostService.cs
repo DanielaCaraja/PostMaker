@@ -9,16 +9,7 @@ namespace BLL.Abstract
 {
     public  interface IPostService
     {
-        IList<PostDto> GetPosts();
-        void CreatePost(global::PostMaker.Controllers.PostDto dto);
-    }
-
-    public class PostDto
-    {
-        public object Created;
-
-        public object Author { get; internal set; }
-        public object Id { get; internal set; }
-        public object Content { get; internal set; }
+        IList<PostDTO> GetPosts();
+        void CreatePost(PostDTO post);
     }
 }

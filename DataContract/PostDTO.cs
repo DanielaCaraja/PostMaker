@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataContract
 {
-    class PostDTO
+    public class PostDTO
     {
         public int Id { get; set; }
         public string Author { get; set; }

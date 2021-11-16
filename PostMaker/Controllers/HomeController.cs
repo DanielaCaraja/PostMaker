@@ -27,8 +27,8 @@ namespace PostMaker.Controllers
             var dtos = _postService.GetPosts();
             var posts = dtos.Select(x => new PostViewModel()
             {
-                Author = (string)x.Author,
-                Content= (string)x.Content,
+                Author = x.Author,
+                Content= x.Content,
                 Created = x.Created.ToString()
             }).ToList();
             return View(posts);
@@ -40,15 +40,15 @@ namespace PostMaker.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult CreatePost (PostViewModel model)
+        public IActionResult CreatePost (CreatePostViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var dto = new PostDto()
+                var dto = new PostDTO()
                 {
                     Author = model.Author,
-                    Content = model.Content
-
+                    Content = model.Content,
+                    Created = model.Created
                 };
 
                 _postService.CreatePost(dto);
@@ -56,15 +56,5 @@ namespace PostMaker.Controllers
             }
             return View();
         }
-    }
-
-    public class PostDto
-    {
-        public PostDto()
-        {
-        }
-
-        public string Author { get; set; }
-        public string Content { get; set; }
     }
 }
