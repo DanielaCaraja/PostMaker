@@ -9,5 +9,6 @@ namespace PostMaker.Models
 
         [Required]
         public string? Content { get; set; }
+        public object Created { get; internal set; }
     }
 }
